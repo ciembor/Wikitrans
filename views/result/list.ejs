@@ -1,0 +1,5 @@
+<%for(var i = 0; i < results.length ; i++){%>
+	<tr <%= results[i]%>>
+		<%= $.View('//wikitrans/views/result/show',results[i])%>
+	</tr>
+<%}%>
