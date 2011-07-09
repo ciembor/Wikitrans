@@ -28,6 +28,14 @@ jQuery.Controller.extend('Suggestions',
  
   ".suggestion click" : function(el) {
     $('#word').val(el.html());
+    $('#form').submit();
+    this.destroy();
+  },
+  
+  destroy : function(){
+    console.log('destroy');
+    this._super(); //Always call this!
+    $('#suggestions').remove();
   }
   
 });

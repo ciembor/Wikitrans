@@ -25,6 +25,7 @@ jQuery.Controller.extend('Word',
     {
       $('#form').after('views/suggestions.ejs', {});
       $('#suggestions').suggestions();
+      console.log('sugestie');
     }
     $('#suggestions').controller().update(this.element.val());
   }
