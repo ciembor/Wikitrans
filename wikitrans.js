@@ -5,11 +5,15 @@ steal.plugins(
 	'jquery/controller/view',		// lookup views with the controller's name
 	'jquery/model',					// Ajax wrappers
 	'jquery/dom/fixture',			// simulated Ajax requests
-	'jquery/dom/form_params')		// form data helper
-	
+	'jquery/dom/form_params'		// form data helper
+
+)
+  
 	.css('wikitrans')	// loads styles
 
-	.resources()					// 3rd party script's (like jQueryUI), in resources folder
+	.resources(
+  	'jquery.waterfall/jquery.waterfall.js' // similar to Node.js Step module
+  )					// 3rd party script's (like jQueryUI), in resources folder
 
 	.models('suggestion')						// loads files in models folder 
 

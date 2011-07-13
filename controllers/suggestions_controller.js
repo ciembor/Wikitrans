@@ -8,34 +8,51 @@ jQuery.Controller.extend('Suggestions',
 },
 /* @Prototype */
 {
-
   update : function(w) {
     if (!this.hasOwnProperty('xhr') || this.xhr === undefined)
     {
-      this.xhr = Suggestion.findAll({word: w}, this.callback('list'))
+      this.findAll(w);
     }
     else
     {
-      this.xhr.abort();//.callback(function() {
-        this.xhr = Suggestion.findAll({word: w}, this.callback('list'));
-    //  });
+      $.waterfall(
+        this.xhr.abort(),
+        this.findAll(w)
+      );
+    }
+  },
+  
+  findAll : function(w) {
+    this.xhr = Suggestion.findAll({word: w}, this.callback('list'));    
+  },
+  
+  show : function() {
+    if (this.element.is(":hidden")) 
+    {
+      this.element.show()
     }
   },
   
   list : function(sug){
     this.element.html("views/suggestion.ejs", sug );
+    this.show();
   },
  
   ".suggestion click" : function(el) {
-    $('#word').val(el.html());
-    $('#form').submit();
-    this.destroy();
+    $.waterfall(
+      $('#word').val(el.html()),
+      $('#form').submit(),
+      //this.destroy()
+      this.element.hide()
+    )
   },
   
+  /* Hiding instead of destroying
   destroy : function(){
     console.log('destroy');
     this._super(); //Always call this!
     $('#suggestions').remove();
   }
+  */
   
 });
