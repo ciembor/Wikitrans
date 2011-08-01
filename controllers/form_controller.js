@@ -13,8 +13,9 @@ jQuery.Controller.extend('Wikitrans.Controller.Form',
   },
   
   submit : function() {
-    console.log('tłumaczę ' + $('#word').val());
-    return false;
+    $('#suggestions').hide()
+    $('#results').controller().update($('#word').val());
+    return false; // becouse I don't want to reload page
   }
 });
 

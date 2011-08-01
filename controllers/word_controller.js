@@ -4,7 +4,7 @@
 jQuery.Controller.extend('Word',
 /* @Static */
 {
- //  onDocument: true
+   //onDocument: true
 },
 /* @Prototype */
 {  
@@ -21,12 +21,6 @@ jQuery.Controller.extend('Word',
   },
   
   keyup : function() {
-    if (!$('#suggestions').length)
-    {
-      $('#form').after('views/suggestions.ejs', {});
-      $('#suggestions').suggestions();
-      console.log('sugestie');
-    }
     $('#suggestions').controller().update(this.element.val());
   }
 });

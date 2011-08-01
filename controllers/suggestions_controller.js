@@ -4,7 +4,7 @@
 jQuery.Controller.extend('Suggestions',
 /* @Static */
 {
-//  onDocument : true
+ // onDocument : true
 },
 /* @Prototype */
 {
@@ -41,9 +41,8 @@ jQuery.Controller.extend('Suggestions',
   ".suggestion click" : function(el) {
     $.waterfall(
       $('#word').val(el.html()),
-      $('#form').submit(),
+      $('#form').submit()
       //this.destroy()
-      this.element.hide()
     )
   },
   
@@ -56,3 +55,5 @@ jQuery.Controller.extend('Suggestions',
   */
   
 });
+
+$('#suggestions').suggestions();

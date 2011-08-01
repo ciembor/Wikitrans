@@ -12,11 +12,12 @@ steal.plugins(
 	.css('wikitrans')	// loads styles
 
 	.resources(
-  	'jquery.waterfall/jquery.waterfall.js' // similar to Node.js Step module
-  )					// 3rd party script's (like jQueryUI), in resources folder
+  	'jquery.waterfall/jquery.waterfall.js', // similar to Node.js Step module
+    'wiky.js'                               // wiki markup to html translator
+  )
+  
+	.models('suggestion', 'result')						// loads files in models folder 
 
-	.models('suggestion')						// loads files in models folder 
-
-	.controllers('form', 'word', 'suggestions')					// loads files in controllers folder
+	.controllers('form', 'word', 'suggestions', 'results')					// loads files in controllers folder
 
 	.views('view/suggestion.ejs', 'view/suggestions.ejs');						// adds views to be added to build

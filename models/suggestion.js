@@ -17,7 +17,7 @@ $.Model.extend('Suggestion',
  	 */
 //  models : function(data){
 //    this._super(data.poka);
-//  },
+//z  },
   
 //  wrapMany : function(data){
 //    this._super(data[0]);
@@ -38,7 +38,7 @@ $.Model.extend('Suggestion',
  //  var that = this; 
     
    return $.ajax({
-			url: 'http://pl.wiktionary.org/w/api.php',
+			url: 'http://en.wiktionary.org/w/api.php',
 			type: 'get',
 			dataType: 'jsonp',
 			data: {
